@@ -6,8 +6,9 @@ import (
 )
 
 func main() {
+
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintln(w, "URL-Shortener")
+		http.ServeFile(w, r, "index.html")
 	})
 
 	fmt.Println("Server is running on http://localhost:8000")
