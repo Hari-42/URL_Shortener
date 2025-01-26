@@ -25,14 +25,21 @@
 
     <div class="py-4"></div>
 
-    <div class="text-center">
+    <form method="POST" class="text-center">
         <div class="inline-flex items-center space-x-2">
-            <input type="text" class="px-4 py-2 border rounded-md" placeholder="Enter text here">
-            <div class="px-6 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-500">
-                shorten
-            </div>
+            <input type="text" name="url" class="px-4 py-2 border rounded-md" placeholder="Enter text here" value="{{.URL}}">
+            <button type="submit" class="px-6 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-500">
+                Shorten
+            </button>
         </div>
+    </form>
+
+    {{if .URL}}
+    <div class="text-center mt-4">
+        <p class="text-xl font-semibold">Your entered link:</p>
+        <a href="{{.URL}}" target="_blank" class="text-lg text-blue-600">{{.URL}}</a>
     </div>
+    {{end}}
 
 </main>
 </body>
