@@ -15,32 +15,40 @@
     <div class='pt-9'></div>
 
     <p class="text-lg leading-relaxed mb-6 max-w-6xl mx-auto text-center">
-        Do you have a long link, which you would like to shorten?
+        Do you have a long link?
         Paste it down below
     </p>
 
-    <h2 class="text-2xl font-bold text-gray-800 text-center">
+    <h2 class="text-2xl font-bold text-gray-800 text-center mb-4">
         Enter your link here
     </h2>
 
-    <div class="py-4"></div>
+    <form method="POST" class="space-y-4">
+        <div>
+            <label for="url" class="block text-sm font-medium text-gray-700">Enter URL:</label>
+            <input type="text" id="url" name="url" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm p-2">
+        </div>
 
-    <form method="POST" class="text-center">
-        <div class="inline-flex items-center space-x-2">
-            <input type="text" name="url" class="px-4 py-2 border rounded-md" placeholder="Enter text here" value="{{.URL}}">
-            <button type="submit" class="px-6 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-500">
+        <div class="text-center">
+            <button
+                    type="submit"
+                    class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                 Shorten
             </button>
         </div>
     </form>
 
-    {{if .URL}}
-    <div class="text-center mt-4">
-        <p class="text-xl font-semibold">Your entered link:</p>
-        <a href="{{.URL}}" target="_blank" class="text-lg text-blue-600">{{.URL}}</a>
+    {{if .OriginalURL}}
+    <div class="mt-6 p-4 bg-gray-100 rounded-lg">
+        <p class="text-sm text-gray-700">Original URL:
+            <a href="{{.OriginalURL}}" target="_blank" class="text-blue-500 underline hover:text-blue-700">{{.OriginalURL}}</a>
+        </p>
+        <br>
+        <p class="text-sm text-gray-700">Shortened URL:
+            <a href="{{.ShortURL}}" target="_blank" class="text-blue-500 underline hover:text-blue-700">{{.ShortURL}}</a>
+        </p>
     </div>
     {{end}}
-
 </main>
 </body>
 </html>
