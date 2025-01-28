@@ -1,6 +1,6 @@
 # URL_Shortener
 
-I wanted to learn the programming language go, so I made a small spplication.
+I wanted to learn the programming language go, so I made a small application. Note that I don't have a domain, so if you copy the shortened link it won't work
 
 ## Features
 
